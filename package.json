@@ -1,0 +1,26 @@
+{
+  "name": "dx-llp-landing-page",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sass src/scss/style.scss:.build/style.css && sass --watch src/scss/style.scss:.build/style.css & vite build --watch --mode development & vite",
+    "build": "vite build && sass --no-source-map src/scss/style.scss:dist/style.css && cp src/index.html dist/index.html && rm -f dist/*.map",
+    "preview": "vite preview",
+    "sass:watch": "sass --watch src/scss/style.scss:.build/style.css",
+    "sass:build": "sass --no-source-map src/scss/style.scss:dist/style.css",
+    "js:watch": "vite build --watch --mode development",
+    "wp-container:build": "bash scripts/install-cocoon.sh && docker compose up --build -d"
+  },
+  "devDependencies": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@7.1.14"
+    }
+  },
+  "dependencies": {
+    "sass": "^1.93.3"
+  }
+}

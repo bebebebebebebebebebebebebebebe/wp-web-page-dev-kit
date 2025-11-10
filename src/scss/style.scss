@@ -1,0 +1,6 @@
+@forward "reset";
+/*
+SWELLのCSSとの競合を避けるため、すべてのセレクタの前に
+親クラス「.swell-lp-custom-wrapper」を追加しています。
+*/
+
