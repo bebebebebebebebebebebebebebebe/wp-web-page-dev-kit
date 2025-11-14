@@ -40,3 +40,6 @@ wordpress/themes/cocoon-master/
 .serena
 
 .env
+
+# prompt
+*.prompt*

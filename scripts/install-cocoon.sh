@@ -67,6 +67,12 @@ else
     echo "✓ Cocoon 子テーマは既に存在します。"
 fi
 
+# グループ書き込み権限を設定（WordPress管理画面からの編集を可能にする）
+echo "ファイルパーミッションを設定中..."
+chmod -R g+w "$THEMES_DIR/cocoon-child-master"
+chmod -R g+w "$THEMES_DIR/cocoon-master" 2>/dev/null || true
+echo "✓ パーミッション設定完了"
+
 echo ""
 echo "Cocoon テーマのセットアップが完了しました！"
 echo ""

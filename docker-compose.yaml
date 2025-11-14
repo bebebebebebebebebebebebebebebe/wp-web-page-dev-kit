@@ -20,7 +20,6 @@ services:
       - db_data:/var/lib/mysql
 
   wordpress:
-    # user: "${UID:-1000}:${GID:-1000}"
     depends_on:
       db:
         condition: service_healthy
@@ -28,12 +27,17 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: wordpress
+    entrypoint: >
+      bash -c "chgrp -R www-data /var/www/html/wp-content/themes/cocoon-master /var/www/html/wp-content/themes/cocoon-child-master 2>/dev/null || true &&
+      chmod -R g+w /var/www/html/wp-content/themes/cocoon-master /var/www/html/wp-content/themes/cocoon-child-master 2>/dev/null || true &&
+      exec docker-entrypoint.sh apache2-foreground"
     ports:
       - 8000:80
     volumes:
       - wp-data:/var/www/html
       - ./wordpress/themes/cocoon-master:/var/www/html/wp-content/themes/cocoon-master
       - ./wordpress/themes/cocoon-child-master:/var/www/html/wp-content/themes/cocoon-child-master
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
 
     healthcheck:
