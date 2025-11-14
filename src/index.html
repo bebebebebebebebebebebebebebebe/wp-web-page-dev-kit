@@ -163,11 +163,11 @@
                 </span>
               </a>
               <a
-                href="#materials"
+                href="#booking"
                 class="btn btn--ghost btn--lg icon-link"
-                data-intent="materials"
+                data-intent="contact"
               >
-                サービス資料をダウンロード
+                お問い合わせ・資料請求
                 <span class="icon-16" aria-hidden="true">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -175,10 +175,8 @@
                     viewBox="0 0 16 16"
                   >
                     <path
-                      d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
-                    />
-                    <path
-                      d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"
+                      fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
                     />
                   </svg>
                 </span>
@@ -564,93 +562,6 @@
         </div>
       </section>
 
-      <!-- 資料DL -->
-      <section
-        id="materials"
-        class="section section--alt"
-        aria-labelledby="materials-title"
-      >
-        <div class="container">
-          <header class="section__head with-icon-heading">
-            <span class="icon-20" aria-hidden="true"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
-                />
-                <path
-                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"
-                /></svg
-            ></span>
-            <h2 id="materials-title" class="section__title">サービス資料</h2>
-          </header>
-          <p class="section__lead">
-            カリキュラム詳細、通所モデル、支援体制、費用の目安を1冊に。
-          </p>
-
-          <form class="form" data-reveal novalidate>
-            <div class="form__row">
-              <label class="form__label" for="m-name">氏名</label>
-              <input
-                id="m-name"
-                name="name"
-                class="form__input"
-                type="text"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="m-email">メール</label>
-              <input
-                id="m-email"
-                name="email"
-                class="form__input"
-                type="email"
-                autocomplete="email"
-                required
-              />
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="m-purpose">ご関心</label>
-              <select id="m-purpose" name="purpose" class="form__input">
-                <option value="trial">見学・体験を検討</option>
-                <option value="course">コース詳細を知りたい</option>
-                <option value="company">企業実習/採用の相談</option>
-              </select>
-            </div>
-            <div class="form__actions">
-              <button
-                type="submit"
-                class="btn btn--primary icon-link icon-link-hover"
-                data-intent="download"
-              >
-                資料をメールで受け取る
-                <span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
-                    />
-                    <path
-                      d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"
-                    /></svg
-                ></span>
-              </button>
-            </div>
-            <p class="form__note">
-              送信でプライバシーポリシーに同意したものとみなされます。
-            </p>
-          </form>
-        </div>
-      </section>
-
       <!-- FAQ -->
       <section id="faq" class="section" aria-labelledby="faq-title">
         <div class="container">
@@ -691,7 +602,7 @@
         </div>
       </section>
 
-      <!-- 予約CTA -->
+      <!-- お問い合わせCTA -->
       <section
         id="booking"
         class="cta section section--cta"
@@ -700,49 +611,135 @@
         <div class="container cta__inner">
           <div class="cta__copy">
             <h2 id="booking-title" class="section__title">
-              見学・個別相談を予約
+              お問い合わせ
             </h2>
             <p class="section__lead">
-              ご希望日時をお知らせください。オンライン／来所いずれも対応します。
+              資料請求、見学・体験のご予約、その他のお問い合わせはこちらから。オンライン／来所いずれも対応します。
             </p>
           </div>
-          <form class="form form--inline" data-reveal novalidate>
-            <label class="sr-only" for="b-name">氏名</label>
-            <input
-              id="b-name"
-              class="form__input"
-              type="text"
-              placeholder="氏名"
-              required
-            />
-            <label class="sr-only" for="b-email">メール</label>
-            <input
-              id="b-email"
-              class="form__input"
-              type="email"
-              placeholder="メール"
-              required
-            />
-            <label class="sr-only" for="b-date">希望日</label>
-            <input id="b-date" class="form__input" type="date" />
-            <button
-              type="submit"
-              class="btn btn--primary icon-link icon-link-hover"
-              data-intent="booking-submit"
-            >
-              予約する
-              <span class="icon-16" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  /></svg
-              ></span>
-            </button>
+          <form class="form" data-reveal novalidate id="contact-form">
+            <div class="form__row">
+              <label class="form__label" for="contact-name">氏名<span class="form__required" aria-label="必須">*</span></label>
+              <input
+                id="contact-name"
+                name="name"
+                class="form__input"
+                type="text"
+                autocomplete="name"
+                required
+                aria-required="true"
+              />
+              <span class="form__error" id="contact-name-error" role="alert"></span>
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="contact-email">メールアドレス<span class="form__required" aria-label="必須">*</span></label>
+              <input
+                id="contact-email"
+                name="email"
+                class="form__input"
+                type="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+              />
+              <span class="form__error" id="contact-email-error" role="alert"></span>
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="contact-tel">電話番号<span class="form__required" aria-label="必須">*</span></label>
+              <input
+                id="contact-tel"
+                name="tel"
+                class="form__input"
+                type="tel"
+                autocomplete="tel"
+                required
+                aria-required="true"
+                placeholder="例: 090-1234-5678"
+              />
+              <span class="form__error" id="contact-tel-error" role="alert"></span>
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="contact-type">お問い合わせ種別<span class="form__required" aria-label="必須">*</span></label>
+              <select
+                id="contact-type"
+                name="type"
+                class="form__input"
+                required
+                aria-required="true"
+              >
+                <option value="">選択してください</option>
+                <option value="materials">資料請求</option>
+                <option value="visit">見学・体験の予約</option>
+                <option value="other">その他</option>
+              </select>
+              <span class="form__error" id="contact-type-error" role="alert"></span>
+            </div>
+            <!-- 条件付きフィールド: 資料請求選択時 -->
+            <div class="form__row form__row--conditional" id="field-purpose" style="display: none;">
+              <label class="form__label" for="contact-purpose">ご関心</label>
+              <select id="contact-purpose" name="purpose" class="form__input">
+                <option value="">選択してください</option>
+                <option value="trial">見学・体験を検討</option>
+                <option value="course">コース詳細を知りたい</option>
+                <option value="company">企業実習/採用の相談</option>
+              </select>
+            </div>
+            <!-- 条件付きフィールド: 見学・体験予約選択時 -->
+            <div class="form__row form__row--conditional" id="field-date" style="display: none;">
+              <label class="form__label" for="contact-date">希望日</label>
+              <input
+                id="contact-date"
+                name="date"
+                class="form__input"
+                type="date"
+              />
+            </div>
+            <div class="form__row">
+              <label class="form__label" for="contact-message">お問い合わせ内容<span class="form__optional" aria-label="任意">（任意）</span></label>
+              <textarea
+                id="contact-message"
+                name="message"
+                class="form__input form__textarea"
+                rows="4"
+                placeholder="ご質問やご要望などをお聞かせください"
+              ></textarea>
+            </div>
+            <div class="form__row form__row--checkbox">
+              <label class="form__checkbox-label">
+                <input
+                  id="contact-privacy"
+                  name="privacy"
+                  type="checkbox"
+                  class="form__checkbox"
+                  required
+                  aria-required="true"
+                />
+                <span class="form__checkbox-text">
+                  個人情報の取り扱いについてをご確認いただき同意いただける場合はチェックを入れてください。<span class="form__required" aria-label="必須">*</span>
+                </span>
+              </label>
+              <span class="form__error" id="contact-privacy-error" role="alert"></span>
+            </div>
+            <div class="form__actions">
+              <button
+                type="submit"
+                class="btn btn--primary icon-link icon-link-hover"
+                data-intent="contact-submit"
+              >
+                送信する
+                <span class="icon-16" aria-hidden="true"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bi"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                    /></svg
+                ></span>
+              </button>
+            </div>
           </form>
         </div>
       </section>
@@ -786,8 +783,8 @@
         </address>
         <ul class="site-footer__links">
           <li>
-            <a href="#materials" class="icon-link icon-link-hover"
-              >資料請求<span class="icon-14" aria-hidden="true"
+            <a href="#booking" class="icon-link icon-link-hover"
+              >お問い合わせ<span class="icon-14" aria-hidden="true"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="bi"

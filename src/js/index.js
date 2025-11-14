@@ -112,10 +112,182 @@
   }
 
   // =========
-  // Lightweight form handling (demo)
+  // Contact Form - Dynamic Fields & Validation
   // =========
-  const forms = $$('form');
-  forms.forEach(f => {
+  const contactForm = $('#contact-form');
+
+  if (contactForm) {
+    const typeSelect = $('#contact-type', contactForm);
+    const purposeField = $('#field-purpose');
+    const dateField = $('#field-date');
+
+    // Dynamic field toggling based on contact type
+    if (typeSelect && purposeField && dateField) {
+      typeSelect.addEventListener('change', () => {
+        const type = typeSelect.value;
+
+        // Hide all conditional fields first
+        purposeField.style.display = 'none';
+        dateField.style.display = 'none';
+
+        // Show relevant field based on selection
+        if (type === 'materials') {
+          purposeField.style.display = 'grid';
+        } else if (type === 'visit') {
+          dateField.style.display = 'grid';
+        }
+      });
+    }
+
+    // Validation helpers
+    const setError = (inputId, message) => {
+      const input = $(`#${inputId}`, contactForm);
+      const errorSpan = $(`#${inputId}-error`, contactForm);
+      if (input) {
+        input.setAttribute('aria-invalid', 'true');
+        input.classList.add('error');
+      }
+      if (errorSpan) {
+        errorSpan.textContent = message;
+      }
+    };
+
+    const clearError = (inputId) => {
+      const input = $(`#${inputId}`, contactForm);
+      const errorSpan = $(`#${inputId}-error`, contactForm);
+      if (input) {
+        input.removeAttribute('aria-invalid');
+        input.classList.remove('error');
+      }
+      if (errorSpan) {
+        errorSpan.textContent = '';
+      }
+    };
+
+    const clearAllErrors = () => {
+      ['contact-name', 'contact-email', 'contact-tel', 'contact-type', 'contact-privacy']
+        .forEach(clearError);
+    };
+
+    // Validation functions
+    const validateEmail = (email) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    };
+
+    const validatePhone = (phone) => {
+      // Allow Japanese phone formats: 090-1234-5678, 03-1234-5678, etc.
+      const re = /^[\d\-\(\)\s]+$/;
+      return phone.length >= 10 && re.test(phone);
+    };
+
+    const validateForm = () => {
+      clearAllErrors();
+      let isValid = true;
+      let firstErrorField = null;
+
+      // Name validation
+      const name = $('#contact-name', contactForm);
+      if (!name.value.trim()) {
+        setError('contact-name', '氏名を入力してください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = name;
+      }
+
+      // Email validation
+      const email = $('#contact-email', contactForm);
+      if (!email.value.trim()) {
+        setError('contact-email', 'メールアドレスを入力してください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = email;
+      } else if (!validateEmail(email.value.trim())) {
+        setError('contact-email', '有効なメールアドレスを入力してください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = email;
+      }
+
+      // Phone validation
+      const tel = $('#contact-tel', contactForm);
+      if (!tel.value.trim()) {
+        setError('contact-tel', '電話番号を入力してください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = tel;
+      } else if (!validatePhone(tel.value.trim())) {
+        setError('contact-tel', '有効な電話番号を入力してください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = tel;
+      }
+
+      // Contact type validation
+      const type = $('#contact-type', contactForm);
+      if (!type.value) {
+        setError('contact-type', 'お問い合わせ種別を選択してください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = type;
+      }
+
+      // Privacy checkbox validation
+      const privacy = $('#contact-privacy', contactForm);
+      if (!privacy.checked) {
+        setError('contact-privacy', '個人情報の取り扱いについてご同意ください');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = privacy;
+      }
+
+      // Scroll to first error
+      if (!isValid && firstErrorField) {
+        firstErrorField.focus();
+        firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      return isValid;
+    };
+
+    // Real-time validation on blur
+    ['contact-name', 'contact-email', 'contact-tel', 'contact-type'].forEach(id => {
+      const input = $(`#${id}`, contactForm);
+      if (input) {
+        input.addEventListener('blur', () => {
+          if (input.value.trim()) {
+            clearError(id);
+          }
+        });
+      }
+    });
+
+    // Form submission
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      const btn = $('button[type="submit"]', contactForm);
+      if (btn) {
+        const original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = '送信中…';
+
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = original;
+          alert('送信が完了しました。（デモ）');
+          contactForm.reset();
+          clearAllErrors();
+          // Reset conditional fields
+          if (purposeField) purposeField.style.display = 'none';
+          if (dateField) dateField.style.display = 'none';
+        }, 700);
+      }
+    });
+  }
+
+  // =========
+  // Lightweight form handling for other forms (demo)
+  // =========
+  const otherForms = $$('form').filter(f => f.id !== 'contact-form');
+  otherForms.forEach(f => {
     f.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = $('button[type="submit"]', f);
