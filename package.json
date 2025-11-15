@@ -4,11 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "sass src/scss/style.scss:.build/style.css && sass --watch src/scss/style.scss:.build/style.css & vite build --watch --mode development & vite",
-    "build": "vite build && sass --no-source-map src/scss/style.scss:dist/style.css && cp src/index.html dist/index.html && rm -f dist/*.map",
+    "dev": "sass src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css && sass --watch src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css & vite build --watch --mode development & vite",
+    "build": "vite build && sass --no-source-map src/scss/pages/page-lp.scss:dist/page-lp/page-lp.css",
     "preview": "vite preview",
-    "sass:watch": "sass --watch src/scss/style.scss:.build/style.css",
-    "sass:build": "sass --no-source-map src/scss/style.scss:dist/style.css",
+    "sass:watch": "sass --watch src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css",
     "js:watch": "vite build --watch --mode development",
     "wp-container:build": "bash scripts/install-cocoon.sh && docker compose up --build -d"
   },

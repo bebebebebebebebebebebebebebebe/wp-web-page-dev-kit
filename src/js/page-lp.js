@@ -1,4 +1,4 @@
-// main.js
+// page-lp.js
 (() => {
   const $ = (sel, scope = document) => scope.querySelector(sel);
   const $$ = (sel, scope = document) => Array.from(scope.querySelectorAll(sel));
