@@ -11,15 +11,36 @@ export default defineConfig(({ mode }) => ({
   publicDir: '../../public',
   plugins: [
     {
+      name: 'resolve-page-modules',
+      resolveId(id) {
+        // HTMLから参照される page-lp.js / page-front.js のパスを解決
+        if (id === '/page-lp.js' || id === 'page-lp.js') {
+          const filePath = resolve(__dirname, '.build/page-lp/page-lp.js');
+          if (fs.existsSync(filePath)) {
+            return filePath;
+          }
+        }
+        if (id === '/page-front.js' || id === 'page-front.js') {
+          const filePath = resolve(__dirname, '.build/page-front/page-front.js');
+          if (fs.existsSync(filePath)) {
+            return filePath;
+          }
+        }
+        return null;
+      }
+    },
+    {
       name: 'serve-build-files',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          // page-lp.css と page-lp.js へのリクエストを .build/ にリダイレクト
-          if (req.url === '/page-lp.css' || req.url === '/page-lp.js') {
-            const filePath = resolve(__dirname, `.build/page-lp${req.url}`);
+          // page-lp.css/js と page-front.css/js へのリクエストを .build/ にリダイレクト
+          const pageMatch = req.url.match(/^\/(page-(?:lp|front))\.(css|js)$/);
+          if (pageMatch) {
+            const [, pageName, ext] = pageMatch;
+            const filePath = resolve(__dirname, `.build/${pageName}/${pageName}.${ext}`);
             if (fs.existsSync(filePath)) {
               const content = fs.readFileSync(filePath, 'utf-8');
-              const contentType = req.url.endsWith('.css') ? 'text/css' : 'application/javascript';
+              const contentType = ext === 'css' ? 'text/css' : 'application/javascript';
               res.setHeader('Content-Type', contentType);
               res.end(content);
               return;
@@ -34,7 +55,7 @@ export default defineConfig(({ mode }) => ({
       closeBundle() {
         if (mode === 'development') {
           // 開発時は .build/ にコピー
-          const pages = ['page-lp'];
+          const pages = ['page-lp', 'page-front'];
           pages.forEach(page => {
             const srcHtml = resolve(__dirname, `src/layouts/${page}.html`);
             const destDir = resolve(__dirname, `.build/${page}`);
@@ -49,7 +70,7 @@ export default defineConfig(({ mode }) => ({
           });
         } else {
           // 本番時は dist/ にコピー
-          const pages = ['page-lp'];
+          const pages = ['page-lp', 'page-front'];
           pages.forEach(page => {
             const srcHtml = resolve(__dirname, `src/layouts/${page}.html`);
             const destDir = resolve(__dirname, `dist/${page}`);
@@ -75,11 +96,10 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: {
         'page-lp': resolve(__dirname, 'src/js/page-lp.js'),
-        // 将来的にpage-frontなど他のページを追加可能
-        // 'page-front': resolve(__dirname, 'src/js/page-front.js'),
+        'page-front': resolve(__dirname, 'src/js/page-front.js'),
       },
       output: {
-        format: 'iife',
+        format: 'es', // ES modules format to support multiple entries
         // 各ページをディレクトリに分けて出力
         entryFileNames: (chunkInfo) => {
           const name = chunkInfo.name;
@@ -88,8 +108,12 @@ export default defineConfig(({ mode }) => ({
         assetFileNames: (assetInfo) => {
           // その他のアセット（画像など）
           return 'assets/[name]-[hash][extname]';
-        }
-      }
+        },
+        // コード分割を無効化
+        manualChunks: () => null
+      },
+      // エントリーポイントごとに個別のバンドルを生成
+      preserveEntrySignatures: false
     },
   },
   server: {

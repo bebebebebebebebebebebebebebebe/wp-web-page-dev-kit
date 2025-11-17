@@ -1,15 +1,14 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team Vertex｜IT特化型 就労移行支援</title>
+    <title>IT就労移行支援 Team Vertex｜無料見学・相談予約受付中</title>
     <meta
       name="description"
-      content="Team VertexはIT分野に特化した就労移行支援事業所。学習から実務実習、就職定着まで一気通貫でサポートします。"
+      content="ITスキルを武器に、就職と定着をサポート。未経験でも安心の個別支援、企業実習、資格取得サポートで「働ける力」を育てます。まずは無料見学・個別相談から。"
     />
-    <!-- Bootstrap 5.3（指定のCDN） -->
+    <!-- Bootstrap 5.3 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,6 +23,7 @@
       <span class="progress__bar"></span>
     </div>
 
+    <!-- LP簡素化ヘッダー -->
     <header class="site-header" data-header>
       <div class="container site-header__inner">
         <a href="#top" class="brand" aria-label="Team Vertex トップへ">
@@ -32,143 +32,49 @@
           <span class="brand__sub">IT就労移行支援</span>
         </a>
 
-        <button
-          class="nav-toggle"
-          data-nav-toggle
-          aria-expanded="false"
-          aria-controls="global-nav"
+        <!-- LP用：CTAボタンのみ（ナビゲーションリンクなし） -->
+        <a
+          href="#booking"
+          class="btn btn--primary icon-link icon-link-hover"
         >
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="sr-only">メニュー</span>
-        </button>
-
-        <nav id="global-nav" class="nav" data-nav>
-          <ul class="nav__list">
-            <li>
-              <a href="#programs" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><?xml version="1.0" ?><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m11.5-3a.5.5 0 0 1 .5.5V6h1a.5.5 0 0 1 0 1h-1v1.5a.5.5 0 0 1-1 0V7H9a.5.5 0 0 1 0-1h1.5V5.5a.5.5 0 0 1 .5-.5"
-                    /></svg></span
-                >プログラム</a
-              >
-            </li>
-            <li>
-              <a href="#outcomes" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 0h1v15h15v1H0z" />
-                    <path
-                      d="M2 13h2V7H2zm4 0h2V3H6zm4 0h2V9h-2zm4 0h2V5h-2z"
-                    /></svg></span
-                >成果</a
-              >
-            </li>
-            <li>
-              <a href="#flow" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M1 8a2 2 0 1 1 3.999.001A2 2 0 0 1 1 8M11 8a2 2 0 1 1 4 .001A2 2 0 0 1 11 8M6 8a2 2 0 1 1 4 .001A2 2 0 0 1 6 8"
-                    /></svg></span
-                >利用の流れ</a
-              >
-            </li>
-            <li>
-              <a href="#faq" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 1a7 7 0 1 0 4.95 12.03l2.29.76a.5.5 0 0 0 .64-.64l-.76-2.29A7 7 0 0 0 8 1m.93 9.412-1 .001V9.5h1zm1.812-3.248c-.237.398-.61.67-1.016.97l-.083.063c-.487.36-.731.564-.78.93L8.86 9H7.86l.007-.295c.035-.897.58-1.314 1.04-1.652l.106-.078c.338-.253.585-.438.73-.678a1.2 1.2 0 0 0-.08-1.31C9.41 4.618 8.68 4.5 8.001 4.5c-.6 0-1.18.154-1.62.43l-.2.127-.5-.866.2-.127A3.42 3.42 0 0 1 8 3.5c.93 0 1.77.25 2.31.8.56.56.72 1.36.43 2.114"
-                    /></svg></span
-                >FAQ</a
-              >
-            </li>
-          </ul>
-          <div class="nav__cta">
-            <a
-              href="#booking"
-              class="btn btn--primary icon-link icon-link-hover"
+          無料見学・相談予約
+          <span class="icon-16" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="bi"
+              viewBox="0 0 16 16"
             >
-              見学・相談を予約
-              <span class="icon-16" aria-hidden="true">
-                <!-- arrow-right -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </nav>
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+              />
+            </svg>
+          </span>
+        </a>
       </div>
     </header>
 
     <main id="top">
-      <!-- ヒーロー -->
+      <!-- 1. ヒーロー（CTA 1つに統一） -->
       <section class="hero section" aria-labelledby="hero-title">
         <div class="container hero__grid">
-          <div class="hero__copy" aria-describedby="hero-lead hero-points">
+          <div class="hero__copy">
             <p class="hero__kicker">IT特化型 就労移行支援</p>
             <h1 id="hero-title" class="hero__title">
               ITで、次の一歩を。<br class="hero__br-md" />
               学習から就職・定着まで一気通貫で伴走。
             </h1>
-            <p id="hero-lead" class="hero__lead">
-              Team
-              Vertexは、エンジニア・デザイナー・IT事務などの職種を見据えた実践型カリキュラムと、企業連携の実務実習で「働ける力」を育てる就労移行支援事業所です。
+            <p class="hero__lead">
+              Team Vertexは、エンジニア・デザイナー・IT事務などの職種を見据えた実践型カリキュラムと、企業連携の実務実習で「働ける力」を育てる就労移行支援事業所です。
             </p>
 
             <div class="hero__cta">
               <a
                 href="#booking"
                 class="btn btn--primary btn--lg icon-link icon-link-hover"
-                data-intent="booking"
               >
                 無料見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <a
-                href="#booking"
-                class="btn btn--ghost btn--lg icon-link"
-                data-intent="contact"
-              >
-                お問い合わせ・資料請求
-                <span class="icon-16" aria-hidden="true">
+                <span class="icon-16">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="bi"
@@ -202,7 +108,7 @@
         </div>
       </section>
 
-      <!-- 導線強化バナー -->
+      <!-- 固定CTAバー -->
       <aside class="sticky-cta" data-sticky-cta aria-hidden="true">
         <div class="container sticky-cta__inner">
           <p class="sticky-cta__text">個別見学は30分。オンラインも可。</p>
@@ -211,7 +117,7 @@
             class="btn btn--primary btn--sm icon-link icon-link-hover"
           >
             今すぐ予約
-            <span class="icon-16" aria-hidden="true"
+            <span class="icon-16"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="bi"
@@ -226,7 +132,77 @@
         </div>
       </aside>
 
-      <!-- プログラム -->
+      <!-- 2. 共感パート（新設） -->
+      <section class="lp-empathy section section--alt" aria-labelledby="empathy-title">
+        <div class="container">
+          <h2 id="empathy-title" class="section__title text-center">
+            こんなお悩み、ありませんか？
+          </h2>
+          <p class="section__lead text-center">
+            Team Vertexは、IT分野で働きたいあなたのための支援事業所です。
+          </p>
+
+          <ul class="lp-concerns" data-reveal>
+            <li class="lp-concern">
+              <span class="lp-concern__icon icon-20" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                </svg>
+              </span>
+              <div class="lp-concern__text">
+                <strong>ITに興味はあるが、未経験で自信がない</strong>
+                <p>プログラミングやデザインに興味があっても、「自分にできるのか」と不安を感じていませんか？</p>
+              </div>
+            </li>
+            <li class="lp-concern">
+              <span class="lp-concern__icon icon-20" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                </svg>
+              </span>
+              <div class="lp-concern__text">
+                <strong>働きたいが、自分に合う職場が見つからない</strong>
+                <p>自分の特性や希望に合った職場環境を見つけるのは難しいと感じていませんか？</p>
+              </div>
+            </li>
+            <li class="lp-concern">
+              <span class="lp-concern__icon icon-20" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                </svg>
+              </span>
+              <div class="lp-concern__text">
+                <strong>メンタル面で不安があり、継続できるか心配</strong>
+                <p>体調の波があったり、人間関係に不安を感じたりして、長く続けられるか不安ですか？</p>
+              </div>
+            </li>
+            <li class="lp-concern">
+              <span class="lp-concern__icon icon-20" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                </svg>
+              </span>
+              <div class="lp-concern__text">
+                <strong>資格を取りたいが、一人では続かない</strong>
+                <p>独学での学習が続かず、目標達成までサポートが欲しいと感じていませんか？</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="lp-empathy__cta" data-reveal>
+            <p class="lp-empathy__message">
+              <strong>Team Vertexなら、すべて解決できます。</strong><br />
+              専任スタッフが、あなたの目標達成まで寄り添います。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. プログラム紹介（解決策） -->
       <section id="programs" class="section" aria-labelledby="programs-title">
         <div class="container">
           <header class="section__head with-icon-heading">
@@ -430,7 +406,7 @@
         </div>
       </section>
 
-      <!-- 成果 -->
+      <!-- 4. 実績・KPI（信頼構築） -->
       <section
         id="outcomes"
         class="section section--alt"
@@ -490,12 +466,173 @@
         </div>
       </section>
 
-      <!-- 利用の流れ -->
+      <!-- 5. 利用者の声（新設） -->
+      <section id="voices" class="section" aria-labelledby="voices-title">
+        <div class="container">
+          <h2 id="voices-title" class="section__title text-center">
+            利用者の声
+          </h2>
+          <p class="section__lead text-center">
+            Team Vertexで就職を実現した卒業生の体験談をご紹介します。
+          </p>
+
+          <div class="lp-voices" data-reveal>
+            <article class="lp-voice">
+              <div class="lp-voice__avatar" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+              </div>
+              <div class="lp-voice__content">
+                <h3 class="lp-voice__name">田中 一郎さん（28歳・Webエンジニア）</h3>
+                <p class="lp-voice__company">某IT企業にWebエンジニアとして就職</p>
+                <blockquote class="lp-voice__quote">
+                  「プログラミング未経験で不安でしたが、週次の1on1で学習計画を調整してもらえたおかげで、自分のペースで着実にスキルを身につけることができました。企業実習では実際の開発チームに参加し、GitHubでのコードレビューまで経験できたことが、就職後に大いに役立っています。」
+                </blockquote>
+              </div>
+            </article>
+
+            <article class="lp-voice">
+              <div class="lp-voice__avatar" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+              </div>
+              <div class="lp-voice__content">
+                <h3 class="lp-voice__name">佐藤 花子さん（32歳・UI/UXデザイナー）</h3>
+                <p class="lp-voice__company">デザイン会社にUI/UXデザイナーとして就職</p>
+                <blockquote class="lp-voice__quote">
+                  「デザインツールの使い方だけでなく、ユーザーテストの進め方やアクセシビリティの重要性まで学べました。支援員の方が私の特性を理解してくれて、無理なく通所できるようスケジュール調整してくれたことが本当にありがたかったです。就職後も定着支援で相談できる安心感があります。」
+                </blockquote>
+              </div>
+            </article>
+
+            <article class="lp-voice">
+              <div class="lp-voice__avatar" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+              </div>
+              <div class="lp-voice__content">
+                <h3 class="lp-voice__name">鈴木 太郎さん（25歳・ITサポート）</h3>
+                <p class="lp-voice__company">システム会社にヘルプデスク担当として就職</p>
+                <blockquote class="lp-voice__quote">
+                  「コミュニケーションに苦手意識がありましたが、ロールプレイを通じて問い合わせ対応の練習ができました。支援員の方が面接同行してくれたり、配慮事項を企業に伝えてくれたりと、きめ細やかなサポートのおかげで安心して就職活動に臨めました。」
+                </blockquote>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. サポート体制（新設） -->
+      <section id="support" class="section section--alt" aria-labelledby="support-title">
+        <div class="container">
+          <h2 id="support-title" class="section__title text-center">
+            充実のサポート体制
+          </h2>
+          <p class="section__lead text-center">
+            専任スタッフが、あなたの目標達成まで寄り添います。
+          </p>
+
+          <div class="lp-support" data-reveal>
+            <article class="lp-support-item">
+              <div class="lp-support-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                </svg>
+              </div>
+              <h3 class="lp-support-item__title">個別支援計画</h3>
+              <p class="lp-support-item__desc">
+                週次1on1で学習進捗と体調を丁寧にモニタリング。あなたのペースに合わせた個別カリキュラムを作成します。
+              </p>
+            </article>
+
+            <article class="lp-support-item">
+              <div class="lp-support-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3q0-.405-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708M3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
+                </svg>
+              </div>
+              <h3 class="lp-support-item__title">実践型カリキュラム</h3>
+              <p class="lp-support-item__desc">
+                採用基準から逆算した現場直結のカリキュラム。企業実習では実際の開発チームに参加し、実務経験を積めます。
+              </p>
+            </article>
+
+            <article class="lp-support-item">
+              <div class="lp-support-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z"/>
+                </svg>
+              </div>
+              <h3 class="lp-support-item__title">資格取得サポート</h3>
+              <p class="lp-support-item__desc">
+                ITパスポート、基本情報技術者試験など、各種資格取得をサポート。独学では続かない学習も、専任スタッフが伴走します。
+              </p>
+            </article>
+
+            <article class="lp-support-item">
+              <div class="lp-support-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                  <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+                </svg>
+              </div>
+              <h3 class="lp-support-item__title">就職・定着支援</h3>
+              <p class="lp-support-item__desc">
+                履歴書・ポートフォリオ添削、面接練習から、就職後12ヶ月の定着支援まで。長く働き続けられるよう、継続的にサポートします。
+              </p>
+            </article>
+          </div>
+
+          <div class="lp-support-staff" data-reveal>
+            <h3 class="lp-support-staff__title">支援スタッフ紹介</h3>
+            <div class="lp-staff-grid">
+              <article class="lp-staff">
+                <div class="lp-staff__avatar" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                  </svg>
+                </div>
+                <h4 class="lp-staff__name">山田 太郎</h4>
+                <p class="lp-staff__role">プログラム責任者</p>
+                <p class="lp-staff__bio">IT企業での開発経験10年。個別カリキュラム設計と技術指導を担当。</p>
+              </article>
+
+              <article class="lp-staff">
+                <div class="lp-staff__avatar" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                  </svg>
+                </div>
+                <h4 class="lp-staff__name">鈴木 花子</h4>
+                <p class="lp-staff__role">就労支援員</p>
+                <p class="lp-staff__bio">社会福祉士資格保有。個別支援計画作成と就職・定着支援を担当。</p>
+              </article>
+
+              <article class="lp-staff">
+                <div class="lp-staff__avatar" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                  </svg>
+                </div>
+                <h4 class="lp-staff__name">佐藤 次郎</h4>
+                <p class="lp-staff__role">キャリアアドバイザー</p>
+                <p class="lp-staff__bio">人材業界での採用支援経験8年。履歴書添削・面接練習を担当。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. 利用の流れ -->
       <section id="flow" class="section" aria-labelledby="flow-title">
         <div class="container">
           <header class="section__head with-icon-heading">
             <span class="icon-20" aria-hidden="true">
-              <!-- calendar-check -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="bi"
@@ -562,8 +699,8 @@
         </div>
       </section>
 
-      <!-- FAQ -->
-      <section id="faq" class="section" aria-labelledby="faq-title">
+      <!-- 8. FAQ -->
+      <section id="faq" class="section section--alt" aria-labelledby="faq-title">
         <div class="container">
           <header class="section__head with-icon-heading">
             <span class="icon-20" aria-hidden="true"
@@ -602,7 +739,7 @@
         </div>
       </section>
 
-      <!-- お問い合わせCTA -->
+      <!-- 9. お問い合わせCTA（最終CTA） -->
       <section
         id="booking"
         class="cta section section--cta"
@@ -611,10 +748,10 @@
         <div class="container cta__inner">
           <div class="cta__copy">
             <h2 id="booking-title" class="section__title">
-              お問い合わせ
+              まずは無料見学・個別相談から
             </h2>
             <p class="section__lead">
-              資料請求、見学・体験のご予約、その他のお問い合わせはこちらから。オンライン／来所いずれも対応します。
+              お気軽にお問い合わせください。オンライン／来所いずれも対応します。
             </p>
           </div>
           <form class="form" data-reveal novalidate id="contact-form">
@@ -668,8 +805,8 @@
                 aria-required="true"
               >
                 <option value="">選択してください</option>
-                <option value="materials">資料請求</option>
                 <option value="visit">見学・体験の予約</option>
+                <option value="materials">資料請求</option>
                 <option value="other">その他</option>
               </select>
               <span class="form__error" id="contact-type-error" role="alert"></span>
@@ -724,7 +861,6 @@
               <button
                 type="submit"
                 class="btn btn--primary icon-link icon-link-hover"
-                data-intent="contact-submit"
               >
                 送信する
                 <span class="icon-16" aria-hidden="true"
@@ -758,65 +894,22 @@
           </p>
         </div>
         <address class="site-footer__addr">
-          <span class="icon-14 me-1" aria-hidden="true"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="bi"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 0a5.53 5.53 0 0 0-5.5 5.5c0 4.285 5.5 10.5 5.5 10.5S13.5 9.785 13.5 5.5A5.53 5.53 0 0 0 8 0m0 7.5A2 2 0 1 1 8 3.5a2 2 0 0 1 0 4"
-              /></svg
-          ></span>
           〒100-0000 東京都千代田区〇〇 1-2-3<br />
-          <span class="icon-14 me-1" aria-hidden="true"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="bi"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 3.5a4.5 4.5 0 0 1 4.5 4.5h1A5.5 5.5 0 1 0 8 13.5h.5V12L11 14l-2.5 2v-1.5H8A4.5 4.5 0 0 1 3.5 10h1A3.5 3.5 0 0 0 8 13.5"
-              /></svg
-          ></span>
           平日 10:00-17:00／土日祝休
         </address>
         <ul class="site-footer__links">
           <li>
-            <a href="#booking" class="icon-link icon-link-hover"
-              >お問い合わせ<span class="icon-14" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  /></svg></span
-            ></a>
+            <a href="#booking">お問い合わせ</a>
           </li>
           <li>
-            <a href="#faq" class="icon-link icon-link-hover"
-              >FAQ<span class="icon-14" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  /></svg></span
-            ></a>
+            <a href="#faq">FAQ</a>
           </li>
           <li><a href="#" aria-disabled="true">プライバシーポリシー</a></li>
         </ul>
       </div>
     </footer>
 
-    <script src="page-lp.js" defer></script>
-    <!-- 指定のBootstrap JS（そのまま） -->
+    <script type="module" src="page-lp.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "sass src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css && sass --watch src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css & vite build --watch --mode development & vite",
-    "build": "vite build && sass --no-source-map src/scss/pages/page-lp.scss:dist/page-lp/page-lp.css",
+    "dev": "sass src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css && sass src/scss/pages/page-front.scss:.build/page-front/page-front.css && sass --watch src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css & sass --watch src/scss/pages/page-front.scss:.build/page-front/page-front.css & vite build --watch --mode development & vite",
+    "build": "vite build && sass --no-source-map src/scss/pages/page-lp.scss:dist/page-lp/page-lp.css && sass --no-source-map src/scss/pages/page-front.scss:dist/page-front/page-front.css",
     "preview": "vite preview",
-    "sass:watch": "sass --watch src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css",
+    "sass:watch": "sass --watch src/scss/pages/page-lp.scss:.build/page-lp/page-lp.css & sass --watch src/scss/pages/page-front.scss:.build/page-front/page-front.css",
     "js:watch": "vite build --watch --mode development",
     "wp-container:build": "bash scripts/install-cocoon.sh && docker compose up --build -d"
   },
