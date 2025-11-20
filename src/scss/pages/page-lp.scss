@@ -962,22 +962,114 @@ a, button, input, select, details summary {
 .icon-20 { font-size: 20px; }
 
 .lp-concerns {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 32px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 48px;
+  }
 }
 
 .lp-concern {
   display: flex;
-  align-items: start;
-  gap: 8px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lp-concern__image {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.lp-concern__credit {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  margin: 0;
+  font-size: 0.625rem;
+  line-height: 1.2;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3px 6px;
+  border-radius: 3px;
+
+  a {
+    color: #6b7280;
+    text-decoration: none;
+
+    &:hover {
+      color: #374151;
+      text-decoration: underline;
+    }
+  }
+}
+
+.lp-concern__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .lp-concern__icon {
-  font-size: 30px;
-  padding-top: 6px;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.icon-learning {
+  color: #5b21b6;
+}
+
+.icon-work {
+  color: #0369a1;
+}
+
+.icon-health {
+  color: #be123c;
+}
+
+.icon-communication {
+  color: #047857;
+}
+
+.lp-concern__text {
+  flex: 1;
+
+  strong {
+    display: block;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--brand-ink);
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #4b5563;
+  }
 }
 
 svg.bi, .bi {
@@ -1026,12 +1118,23 @@ svg.bi, .bi {
 
 /* 1. 共感パートCTA */
 .lp-empathy__cta {
-  margin-top: 48px;
+  margin-top: 56px;
   text-align: center;
-  padding: 32px 24px;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  border-radius: 16px;
-  border: 2px solid var(--brand-tint);
+  padding: 40px 24px;
+  background: #f8fafc;
+  border-top: 3px solid var(--brand-primary);
+  border-bottom: 3px solid var(--brand-primary);
+}
+
+.lp-empathy__badge {
+  display: inline-block;
+  margin-bottom: 16px;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: var(--brand-primary);
+  }
 }
 
 .lp-empathy__message {
@@ -1042,13 +1145,25 @@ svg.bi, .bi {
 
   strong {
     font-size: 1.25rem;
+    font-weight: 700;
     color: var(--brand-primary);
+    display: block;
+    margin-bottom: 8px;
   }
 }
 
 @media (min-width: 768px) {
   .lp-empathy__cta {
-    padding: 40px 48px;
+    padding: 48px;
+  }
+
+  .lp-empathy__badge {
+    margin-bottom: 20px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .lp-empathy__message {

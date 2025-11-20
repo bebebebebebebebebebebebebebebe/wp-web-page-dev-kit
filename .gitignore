@@ -43,3 +43,4 @@ wordpress/themes/cocoon-master/
 
 # prompt
 *.prompt*
+*_template.md
