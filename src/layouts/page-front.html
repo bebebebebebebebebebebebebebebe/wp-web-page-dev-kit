@@ -1,1297 +1,530 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Vertex｜IT特化型 就労移行支援</title>
-    <meta
-      name="description"
-      content="Team VertexはIT分野に特化した就労移行支援事業所。学習から実務実習、就職定着まで一気通貫でサポートします。"
-    />
-    <!-- Bootstrap 5.3（指定のCDN） -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="page-front.css" />
-  </head>
-  <body>
-    <!-- スクロール進捗 -->
-    <div class="progress" aria-hidden="true">
-      <span class="progress__bar"></span>
-    </div>
+    <meta name="description" content="未経験からWebエンジニア・データ分析職へ。IT特化の就労移行支援事業所「Team Vertex」の公式サイトです。">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#15606a', 
+                            dark: '#0f434a',    
+                            light: '#e6f3f4',   
+                            bg: '#f0f6f7',
+                        },
+                        accent: '#0f8b6e',
+                        ink: '#1a1e24',
+                        muted: '#5a6473',
+                        bgalt: '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04)',
+                    },
+                    maxWidth: {
+                        '8xl': '1440px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <header class="site-header" data-header>
-      <div class="container site-header__inner">
-        <a href="#top" class="brand" aria-label="Team Vertex トップへ">
-          <span class="brand__mark" aria-hidden="true">V</span>
-          <span class="brand__text">Team Vertex</span>
-          <span class="brand__sub">IT就労移行支援</span>
-        </a>
+    <link rel="stylesheet" href="page-front.css">
+</head>
+<body class="text-ink bg-white antialiased leading-relaxed">
 
-        <button
-          class="nav-toggle"
-          data-nav-toggle
-          aria-expanded="false"
-          aria-controls="global-nav"
-        >
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="sr-only">メニュー</span>
-        </button>
-
-        <nav id="global-nav" class="nav" data-nav>
-          <ul class="nav__list">
-            <li>
-              <a href="#programs" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m11.5-3a.5.5 0 0 1 .5.5V6h1a.5.5 0 0 1 0 1h-1v1.5a.5.5 0 0 1-1 0V7H9a.5.5 0 0 1 0-1h1.5V5.5a.5.5 0 0 1 .5-.5"
-                    /></svg></span
-                >プログラム詳細</a
-              >
-            </li>
-            <li>
-              <a href="#support" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                  </svg></span
-                >支援内容</a
-              >
-            </li>
-            <li>
-              <a href="#about" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
-                  </svg></span
-                >事業所について</a
-              >
-            </li>
-            <li>
-              <a href="#access" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-                  </svg></span
-                >アクセス</a
-              >
-            </li>
-            <li>
-              <a href="#news" class="nav__link icon-link icon-link-hover"
-                ><span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z"/>
-                    <path d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z"/>
-                  </svg></span
-                >ニュース</a
-              >
-            </li>
-          </ul>
-          <div class="nav__cta">
-            <a
-              href="#booking"
-              class="btn btn--primary icon-link icon-link-hover"
-            >
-              見学・個別相談を予約
-              <span class="icon-16" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  />
-                </svg>
-              </span>
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 md:px-8 h-16 md:h-20 flex items-center justify-between max-w-8xl">
+            <a href="#" class="flex items-center gap-3 group z-50">
+                <span class="flex items-center justify-center w-9 h-9 bg-brand text-white rounded-lg font-black text-lg shadow-sm">V</span>
+                <div class="flex flex-col">
+                    <span class="font-bold text-xl tracking-tight leading-none text-ink">Team Vertex</span>
+                    <span class="text-[10px] text-muted font-bold tracking-wider mt-0.5 uppercase">IT Job Support</span>
+                </div>
             </a>
-            <a href="#booking" class="nav__link-secondary">サービス資料を請求</a>
-          </div>
-        </nav>
-      </div>
+
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-muted">
+                <a href="#features" class="hover:text-brand transition-colors py-2 border-b-2 border-transparent hover:border-brand">Vertexの強み</a>
+                <a href="#programs" class="hover:text-brand transition-colors py-2 border-b-2 border-transparent hover:border-brand">プログラム</a>
+                <a href="#voice" class="hover:text-brand transition-colors py-2 border-b-2 border-transparent hover:border-brand">卒業生の声</a>
+                <a href="#flow" class="hover:text-brand transition-colors py-2 border-b-2 border-transparent hover:border-brand">ご利用の流れ</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#contact" class="inline-flex items-center gap-2 bg-ink hover:bg-brand text-white text-sm font-bold px-6 py-3 rounded-md transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                    <span>見学・相談予約</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <button id="menu-btn" class="lg:hidden text-2xl text-ink p-2 z-50 focus:outline-none">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg p-4 flex flex-col gap-4 lg:hidden">
+            <nav class="flex flex-col gap-4 text-center font-bold text-ink">
+                <a href="#features" class="py-3 border-b border-gray-100 hover:text-brand">Vertexの強み</a>
+                <a href="#programs" class="py-3 border-b border-gray-100 hover:text-brand">プログラム</a>
+                <a href="#voice" class="py-3 border-b border-gray-100 hover:text-brand">卒業生の声</a>
+                <a href="#flow" class="py-3 border-b border-gray-100 hover:text-brand">ご利用の流れ</a>
+                <a href="#contact" class="bg-brand text-white py-3 rounded-md mt-2">見学・相談予約</a>
+            </nav>
+        </div>
     </header>
 
-    <main id="top">
-      <!-- ヒーロー -->
-      <section class="hero section" aria-labelledby="hero-title">
-        <div class="container hero__grid">
-          <div class="hero__copy" aria-describedby="hero-lead hero-points">
-            <p class="hero__kicker">IT特化型 就労移行支援</p>
-            <h1 id="hero-title" class="hero__title">
-              ITで、次の一歩を。<br class="hero__br-md" />
-              学習から就職・定着まで一気通貫で伴走。
-            </h1>
-            <p id="hero-lead" class="hero__lead">
-              Team
-              Vertexは、エンジニア・デザイナー・IT事務などの職種を見据えた実践型カリキュラムと、企業連携の実務実習で「働ける力」を育てる就労移行支援事業所です。
-            </p>
+    <main>
+        <section class="relative min-h-[100svh] flex items-center overflow-hidden bg-white pt-20">
+            <div class="absolute top-0 right-0 w-2/3 h-full bg-brand-bg skew-x-12 translate-x-1/3 z-0"></div>
+            
+            <div class="container mx-auto px-4 md:px-8 max-w-8xl relative z-10 w-full">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    
+                    <div class="max-w-3xl py-12 md:py-0 order-2 lg:order-1">
+                        <div class="inline-flex items-center gap-2 bg-white border border-gray-200 text-ink text-xs font-bold px-3 py-1.5 rounded mb-6 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-accent"></span>
+                            <span>Web・IT業界への就職実績多数</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] mb-8 tracking-tight text-ink">
+                            ITスキルを武器に、<br>
+                            <span class="relative inline-block text-brand">
+                                「自分らしい働き方」
+                                <span class="absolute bottom-2 left-0 w-full h-3 bg-brand-light -z-10 rounded-sm"></span>
+                            </span>
+                            へ。
+                        </h1>
+                        
+                        <p class="text-muted text-base md:text-lg mb-10 leading-loose md:pr-10">
+                            Team Vertexは、未経験からエンジニア・データ分析職を目指す方のための就労移行支援事業所です。
+                            現役プロ講師による実践指導と、企業連携の実務実習で、あなたのキャリアを強力にバックアップします。
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#contact" class="inline-flex justify-center items-center gap-3 bg-brand hover:bg-brand-dark text-white font-bold text-lg px-8 py-4 rounded-md transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                                無料見学・相談を予約
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <a href="#" class="inline-flex justify-center items-center gap-3 bg-white hover:bg-gray-50 text-ink font-bold text-lg px-8 py-4 rounded-md border border-gray-300 transition-all shadow-sm hover:shadow-md">
+                                資料ダウンロード
+                                <i class="bi bi-file-earmark-arrow-down"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-8 flex items-center gap-6 text-sm text-muted font-medium border-t border-gray-200 pt-6 max-w-md">
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-accent"></i> 定着率 92%
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-accent"></i> 専門職就労
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-accent"></i> オンライン可
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="hero__cta">
-              <a
-                href="#booking"
-                class="btn btn--primary btn--lg icon-link icon-link-hover"
-                data-intent="booking"
-              >
-                無料見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <a
-                href="#booking"
-                class="btn btn--ghost btn--lg icon-link"
-                data-intent="contact"
-              >
-                お問い合わせ・資料請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    />
-                  </svg>
-                </span>
-              </a>
+                    <div class="relative order-1 lg:order-2 h-[300px] md:h-[500px] lg:h-[600px] w-full">
+                        <div class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl z-10">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="チームで開発に取り組む様子" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 md:bottom-10 md:-left-10 bg-white p-6 rounded-lg shadow-card z-20 border border-gray-100 hidden md:block max-w-xs">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-brand-light p-3 rounded text-brand"><i class="bi bi-trophy-fill text-xl"></i></div>
+                                <div>
+                                    <div class="text-xs text-muted font-bold uppercase mb-1">Track Record</div>
+                                    <div class="text-sm font-bold leading-snug">
+                                        未経験から<br>半年でWeb企業へ内定
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl z-0"></div>
+                    </div>
+                </div>
             </div>
-            <p class="hero__microcopy">
-              ※ オンライン見学・個別相談に対応しています
-            </p>
-          </div>
-
-          <figure class="hero__visual" aria-hidden="true">
-            <div class="mockup">
-              <div class="mockup__header">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="mockup__body">
-                <div class="mockup__card"></div>
-                <div class="mockup__card"></div>
-                <div class="mockup__card mockup__card--wide"></div>
-              </div>
+            
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted animate-bounce">
+                <span class="text-xs font-bold tracking-widest uppercase">Scroll</span>
+                <i class="bi bi-chevron-down"></i>
             </div>
-          </figure>
-        </div>
-      </section>
+        </section>
 
-      <!-- 導線強化バナー -->
-      <aside class="sticky-cta sticky-cta--dual" data-sticky-cta aria-hidden="true">
-        <div class="container sticky-cta__inner">
-          <p class="sticky-cta__text">個別見学は30分。オンラインも可。</p>
-          <div class="sticky-cta__buttons">
-            <a
-              href="#booking"
-              class="btn btn--primary btn--sm icon-link icon-link-hover"
-            >
-              見学予約
-              <span class="icon-16" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  /></svg
-              ></span>
-            </a>
-            <a
-              href="#booking"
-              class="btn btn--sm icon-link-hover"
-            >
-              資料請求
-              <span class="icon-16" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                </svg
-              ></span>
-            </a>
-          </div>
-        </div>
-      </aside>
-
-      <!-- プログラム -->
-      <section id="programs" class="section" aria-labelledby="programs-title">
-        <div class="container">
-          <header class="section__head with-icon-heading">
-            <span class="icon-20" aria-hidden="true"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4 0h8a2 2 0 0 1 2 2v10.5l-3-1.5-3 1.5-3-1.5-3 1.5V2a2 2 0 0 1 2-2"
-                /></svg
-            ></span>
-            <h2 id="programs-title" class="section__title">
-              職種別の実践プログラム
-            </h2>
-          </header>
-          <p class="section__lead">
-            採用基準と実務課題から逆算した、現場直結のカリキュラム。
-          </p>
-
-          <div class="cards" data-reveal>
-            <article class="card icon-card">
-              <div class="icon-card__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M3.5 0A1.5 1.5 0 0 0 2 1.5v13A1.5 1.5 0 0 0 3.5 16H11a1 1 0 0 0 1-1V2L9 0zM3.5 1h5.793L11 2.707V15H3.5a.5.5 0 0 1-.5-.5V1.5A.5.5 0 0 1 3.5 1"
-                  />
-                </svg>
-              </div>
-              <h3 class="card__title">Webエンジニア</h3>
-              <p class="card__body">
-                HTML/CSS/JavaScript、Git、API、クラウド基礎。チーム開発でレビュー／Issue運用まで経験。
-              </p>
-              <a href="#booking" class="card__action icon-link icon-link-hover"
-                >このコースで相談
-                <span class="icon-14" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    /></svg
-                ></span>
-              </a>
-            </article>
-
-            <article class="card icon-card">
-              <div class="icon-card__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 0h1v15h15v1H0z" />
-                  <path d="M2 13h2V7H2zm4 0h2V3H6zm4 0h2V9h-2zm4 0h2V5h-2z" />
-                </svg>
-              </div>
-              <h3 class="card__title">データ＆自動化</h3>
-              <p class="card__body">
-                Python、SQL、データ前処理、可視化、RPA。小規模ETLの設計と運用を実習。
-              </p>
-              <a href="#booking" class="card__action icon-link icon-link-hover"
-                >このコースで相談
-                <span class="icon-14" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    /></svg
-                ></span>
-              </a>
-            </article>
-
-            <article class="card icon-card">
-              <div class="icon-card__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M3 1h10a2 2 0 0 1 2 2v9.5l-3-1.5-3 1.5-3-1.5-3 1.5V3a2 2 0 0 1 2-2"
-                  />
-                </svg>
-              </div>
-              <h3 class="card__title">UI/UX・フロント</h3>
-              <p class="card__body">
-                情報設計、アクセシビリティ、Figmaでのプロトタイピング、ユーザーテストを反復。
-              </p>
-              <a href="#booking" class="card__action icon-link icon-link-hover"
-                >このコースで相談
-                <span class="icon-14" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    /></svg
-                ></span>
-              </a>
-            </article>
-
-            <article class="card icon-card">
-              <div class="icon-card__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M5.5 1a.5.5 0 0 0-.5.5V3h-1A1.5 1.5 0 0 0 2.5 4.5v9A1.5 1.5 0 0 0 4 15h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12 3h-1V1.5a.5.5 0 0 0-1 0V3H6V1.5a.5.5 0 0 0-.5-.5z"
-                  />
-                </svg>
-              </div>
-              <h3 class="card__title">ITサポート</h3>
-              <p class="card__body">
-                ヘルプデスク基礎、ドキュメント作成、問い合わせ対応ロールプレイ、SLA/優先度判断。
-              </p>
-              <a href="#booking" class="card__action icon-link icon-link-hover"
-                >このコースで相談
-                <span class="icon-14" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    /></svg
-                ></span>
-              </a>
-            </article>
-          </div>
-
-          <ul class="badges icon-bullets" data-reveal>
-            <li class="badge">
-              <span class="icon-12" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
-                  /></svg></span
-              >個別計画（週次1on1）
-            </li>
-            <li class="badge">
-              <span class="icon-12" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
-                  /></svg></span
-              >企業実習（最短4週間）
-            </li>
-            <li class="badge">
-              <span class="icon-12" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
-                  /></svg></span
-              >資格対策（任意）
-            </li>
-            <li class="badge">
-              <span class="icon-12" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
-                  /></svg></span
-              >就職・定着支援
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 支援内容・体制 -->
-      <section id="support" class="section" aria-labelledby="support-title">
-        <div class="container">
-          <h2 id="support-title" class="section__title text-center">
-            充実のサポート体制
-          </h2>
-          <p class="section__lead text-center">
-            専任スタッフが、あなたの目標達成まで寄り添います。
-          </p>
-
-          <div class="support-features" data-reveal>
-            <article class="support-feature">
-              <div class="support-feature__icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                </svg>
-              </div>
-              <h3 class="support-feature__title">個別支援計画</h3>
-              <p class="support-feature__desc">
-                週次1on1で学習進捗と体調を丁寧にモニタリング。あなたのペースに合わせた個別カリキュラムを作成します。
-              </p>
-            </article>
-
-            <article class="support-feature">
-              <div class="support-feature__icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                  <path d="M7.05 3.691c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 0 0-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 9.483c-.784-.57-.381-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69z"/>
-                </svg>
-              </div>
-              <h3 class="support-feature__title">メンタル・体調面への配慮</h3>
-              <p class="support-feature__desc">
-                体調の波や特性を理解し、無理のないスケジュール調整。安心して通所できる環境を整えます。
-              </p>
-            </article>
-
-            <article class="support-feature">
-              <div class="support-feature__icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
-                  <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5zM11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-              </div>
-              <h3 class="support-feature__title">就職活動支援</h3>
-              <p class="support-feature__desc">
-                履歴書・ポートフォリオ添削、面接練習、開示文書の準備まで。就職活動を全面的にサポートします。
-              </p>
-            </article>
-
-            <article class="support-feature">
-              <div class="support-feature__icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5M4.285 9.567a.5.5 0 0 1 .683.183A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
-                </svg>
-              </div>
-              <h3 class="support-feature__title">職場定着支援</h3>
-              <p class="support-feature__desc">
-                就職後12ヶ月間の定着支援で、業務整理や環境調整をサポート。長く働き続けられるよう伴走します。
-              </p>
-            </article>
-          </div>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">支援内容の詳細をまとめた資料をご用意しています</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                サービス資料を請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                まずは見学で雰囲気を確認
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
+        <section id="news" class="border-y border-gray-200 bg-white">
+            <div class="container mx-auto px-4 md:px-8 max-w-8xl">
+                <div class="flex flex-col md:flex-row items-start md:items-center py-4 gap-4 md:gap-8">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-ink text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">News</span>
+                        <span class="text-xs font-bold text-muted hidden md:inline">最新情報</span>
+                    </div>
+                    <a href="#" class="group flex-1 flex flex-col md:flex-row gap-1 md:gap-4 text-sm text-ink hover:text-brand transition-colors">
+                        <time class="text-muted font-mono text-xs md:text-sm pt-0.5">2025.11.21</time>
+                        <span class="group-hover:underline font-medium">年末年始の休業期間およびオンライン見学予約の受付について</span>
+                    </a>
+                    <a href="#" class="text-xs font-bold text-brand hover:text-brand-dark flex items-center gap-1">
+                        一覧を見る <i class="bi bi-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- 事業所について -->
-      <section id="about" class="section section--alt" aria-labelledby="about-title">
-        <div class="container">
-          <h2 id="about-title" class="section__title text-center">
-            事業所について
-          </h2>
-          <p class="section__lead text-center">
-            なぜIT特化なのか。私たちの想いと取り組みをご紹介します。
-          </p>
+        <section id="features" class="py-24 bg-white">
+            <div class="container mx-auto px-4 md:px-8 max-w-8xl">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-100 pb-8">
+                    <div class="max-w-2xl">
+                        <span class="text-brand font-bold tracking-widest text-xs uppercase mb-2 block">Why Vertex?</span>
+                        <h2 class="text-3xl md:text-4xl font-black text-ink mb-4">
+                            選ばれる<span class="text-brand">3つの理由</span>
+                        </h2>
+                        <p class="text-muted leading-relaxed">
+                            一般的なパソコン教室とは異なり、「実務で通用するか」に焦点を当てた環境を用意しています。
+                            現場を知るプロフェッショナルが、あなたの強みを引き出します。
+                        </p>
+                    </div>
+                    <div class="hidden md:block text-4xl text-gray-100 font-black">01-03</div>
+                </div>
 
-          <div class="about-content" data-reveal>
-            <div class="about-concept">
-              <h3 class="about-concept__title">IT特化型を選んだ理由</h3>
-              <p class="about-concept__text">
-                IT業界は、多様な働き方や職種が存在し、個々の特性を活かしやすい分野です。
-                リモートワークの普及により、通勤の負担を減らせる職場も増えています。
-                また、技術さえ身につけれ
+                <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                    <div class="group">
+                        <div class="mb-6 p-6 bg-bgalt rounded-xl border border-gray-100 group-hover:border-brand/30 transition-colors h-48 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-4 right-4 text-6xl font-black text-white drop-shadow-sm opacity-50">01</div>
+                            <i class="bi bi-person-video3 text-6xl text-brand group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-ink">現役エンジニアによる指導</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            教材の自習だけでなく、実務経験豊富なエンジニアがコードレビューを実施。エラー解決のプロセスや、現場での作法を直接学べます。
+                        </p>
+                    </div>
 
-ば、学歴や職歴に関係なくキャリアを築けるチャンスがあります。
-                私たちは、IT分野に特化することで、より専門的で実践的な支援を提供し、
-                確実に就職へとつなげることを目指しています。
-              </p>
+                    <div class="group">
+                        <div class="mb-6 p-6 bg-bgalt rounded-xl border border-gray-100 group-hover:border-brand/30 transition-colors h-48 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-4 right-4 text-6xl font-black text-white drop-shadow-sm opacity-50">02</div>
+                            <i class="bi bi-laptop text-6xl text-brand group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-ink">開発現場と同じ環境</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            デュアルモニター、最新のIDE、Git/GitHubを用いたチーム開発フローなど、入社後すぐに馴染めるプロ仕様の環境を整備しています。
+                        </p>
+                    </div>
+
+                    <div class="group">
+                        <div class="mb-6 p-6 bg-bgalt rounded-xl border border-gray-100 group-hover:border-brand/30 transition-colors h-48 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-4 right-4 text-6xl font-black text-white drop-shadow-sm opacity-50">03</div>
+                            <i class="bi bi-buildings text-6xl text-brand group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-ink">企業連携の実務実習</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            提携IT企業から切り出された実際のタスク（データ整理、LP修正、バナー作成等）に挑戦。就職活動の実績としてアピール可能です。
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="about-message">
-              <h3 class="about-message__title">代表メッセージ</h3>
-              <div class="about-message__content">
-                <p>
-                  「働きたい」という想いがあっても、さまざまな理由で一歩を踏み出せない方がいます。
-                  Team Vertexは、そんな方々が自分らしく働ける場所を見つけられるよう、全力でサポートします。
-                </p>
-                <p>
-                  IT業界での実務経験を持つスタッフが、現場で本当に求められるスキルと、
-                  個々の特性に合わせた学習計画を提供します。
-                  就職はゴールではなく、スタートです。長く働き続けられるよう、定着支援も含めて伴走いたします。
-                </p>
-                <p class="about-message__signature">代表取締役　山田 太郎</p>
-              </div>
+        <section id="programs" class="py-24 bg-brand-bg border-y border-gray-200">
+            <div class="container mx-auto px-4 md:px-8 max-w-8xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand font-bold tracking-widest text-xs uppercase">Programs</span>
+                    <h2 class="text-3xl md:text-4xl font-black mt-2 text-ink">職種別コース</h2>
+                    <p class="mt-4 text-muted">目指すキャリアに合わせて選べる4つの専門コース</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <article class="bg-white p-6 rounded-lg shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group cursor-pointer">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xl">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-gray-300 group-hover:text-blue-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-ink">Webエンジニア</h3>
+                        <p class="text-sm text-muted leading-relaxed mb-4 min-h-[3rem]">
+                            Webサイトやアプリの見た目・機能を実装する技術を習得。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">HTML/CSS</span>
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">JavaScript</span>
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">React</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-6 rounded-lg shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group cursor-pointer">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center text-xl">
+                                <i class="bi bi-database"></i>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-gray-300 group-hover:text-green-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-ink">データ＆自動化</h3>
+                        <p class="text-sm text-muted leading-relaxed mb-4 min-h-[3rem]">
+                            業務効率化やデータ分析スキルを習得。事務職＋αのスキルとしても。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">Python</span>
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">SQL</span>
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">RPA</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-6 rounded-lg shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group cursor-pointer">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-xl">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-gray-300 group-hover:text-purple-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-ink">UI/UXデザイン</h3>
+                        <p class="text-sm text-muted leading-relaxed mb-4 min-h-[3rem]">
+                            使いやすい画面設計やプロトタイプ作成を習得。論理的なデザイン思考を。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">Figma</span>
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">UI設計</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-6 rounded-lg shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group cursor-pointer">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center text-xl">
+                                <i class="bi bi-hdd-network"></i>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-gray-300 group-hover:text-orange-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-ink">ITサポート</h3>
+                        <p class="text-sm text-muted leading-relaxed mb-4 min-h-[3rem]">
+                            社内ヘルプデスクやインフラ運用保守の基礎を習得。安定した需要あり。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">ITパスポート</span>
+                            <span class="text-[10px] font-bold border border-gray-200 px-2 py-1 rounded text-muted">Office</span>
+                        </div>
+                    </article>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">代表・スタッフと直接話せる見学会を実施しています</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                事業所パンフレットを請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                  </svg>
-                </span>
-              </a>
+        <section id="voice" class="py-24 bg-white">
+            <div class="container mx-auto px-4 md:px-8 max-w-8xl">
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                    <div class="md:w-1/3">
+                        <span class="text-brand font-bold tracking-widest text-xs uppercase">Success Stories</span>
+                        <h2 class="text-3xl md:text-4xl font-black mt-2 text-ink mb-6">卒業生の声</h2>
+                        <p class="text-muted leading-relaxed mb-6">
+                            実際にVertexを利用し、希望のキャリアを実現された方々の声をご紹介します。
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-brand font-bold hover:underline">
+                            全てのインタビューを見る <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="md:w-2/3 grid gap-6">
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 md:p-8 hover:border-brand/30 transition-colors flex flex-col sm:flex-row gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-3xl text-gray-300">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-bold text-lg text-ink">K.Sさん</span>
+                                    <span class="text-xs text-muted bg-gray-100 px-2 py-1 rounded">20代男性</span>
+                                    <span class="text-xs font-bold text-brand">Webエンジニア職</span>
+                                </div>
+                                <h3 class="text-base font-bold mb-3 text-ink">「未経験から、自社開発企業のエンジニアに」</h3>
+                                <p class="text-sm text-muted leading-relaxed">
+                                    以前は接客業をしていましたが、体調を崩し退職。Vertexでは自分のペースで学習でき、ポートフォリオ作成時にはメンターさんが深夜までコードレビューに付き合ってくれました。おかげで自信を持って面接に臨めました。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 md:p-8 hover:border-brand/30 transition-colors flex flex-col sm:flex-row gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-3xl text-gray-300">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-bold text-lg text-ink">M.Tさん</span>
+                                    <span class="text-xs text-muted bg-gray-100 px-2 py-1 rounded">30代女性</span>
+                                    <span class="text-xs font-bold text-brand">IT事務職</span>
+                                </div>
+                                <h3 class="text-base font-bold mb-3 text-ink">「RPAスキルを武器に、事務職として再就職」</h3>
+                                <p class="text-sm text-muted leading-relaxed">
+                                    一般事務の経験はありましたが、プラスアルファのスキルが欲しくて入所。ExcelマクロやRPAツールを学び、面接では「業務改善ができる人材」として評価していただけました。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- 料金・制度の概要 -->
-      <section id="pricing" class="section" aria-labelledby="pricing-title">
-        <div class="container">
-          <h2 id="pricing-title" class="section__title text-center">
-            料金・制度の概要
-          </h2>
-          <p class="section__lead text-center">
-            サービス利用料や就労移行支援制度についてご説明します。
-          </p>
+        <section id="flow" class="py-24 bg-bgalt">
+            <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand font-bold tracking-widest text-xs uppercase">Flow</span>
+                    <h2 class="text-3xl md:text-4xl font-black mt-2 text-ink">ご利用の流れ</h2>
+                </div>
 
-          <div class="pricing-content" data-reveal>
-            <div class="pricing-overview">
-              <h3 class="pricing-overview__title">利用料金について</h3>
-              <div class="pricing-overview__body">
-                <p>
-                  <strong>9割以上の方が無料</strong>でご利用いただけます。
-                  前年度の世帯収入に応じて、自己負担額が決まります（月額上限0円〜37,200円）。
-                </p>
-                <ul class="pricing-list">
-                  <li>生活保護受給世帯・市町村民税非課税世帯：<strong>0円</strong></li>
-                  <li>市町村民税課税世帯（所得割16万円未満）：<strong>9,300円</strong></li>
-                  <li>上記以外：<strong>37,200円</strong></li>
-                </ul>
-                <p class="pricing-note">
-                  ※ 利用期間は原則2年間です。<br>
-                  ※ 交通費・昼食代は実費負担となります。
-                </p>
-              </div>
+                <div class="relative border-l-2 border-gray-200 ml-4 md:ml-0 md:pl-0 space-y-12">
+                    <div class="relative pl-8 md:pl-0 md:flex md:gap-12 items-start">
+                        <div class="absolute -left-[9px] top-0 md:relative md:left-auto md:top-auto md:w-1/4 md:text-right md:pr-8">
+                            <div class="w-4 h-4 rounded-full bg-brand border-4 border-white shadow md:hidden"></div>
+                            <div class="hidden md:block text-4xl font-black text-gray-200 leading-none">01</div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-ink mb-2 flex items-center gap-3">
+                                <span class="md:hidden text-brand">01.</span> お問い合わせ・見学
+                            </h3>
+                            <p class="text-muted leading-relaxed text-sm">
+                                まずはWebフォームまたはお電話にてご連絡ください。事業所の雰囲気やカリキュラムをご案内します。無理な勧誘は一切行いませんのでご安心ください。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 md:pl-0 md:flex md:gap-12 items-start">
+                         <div class="absolute -left-[9px] top-0 md:relative md:left-auto md:top-auto md:w-1/4 md:text-right md:pr-8">
+                            <div class="w-4 h-4 rounded-full bg-brand border-4 border-white shadow md:hidden"></div>
+                            <div class="hidden md:block text-4xl font-black text-gray-200 leading-none">02</div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-ink mb-2 flex items-center gap-3">
+                                <span class="md:hidden text-brand">02.</span> 体験通所・面談
+                            </h3>
+                            <p class="text-muted leading-relaxed text-sm">
+                                実際の講座を体験していただき、ご自身の目標や体調に合わせた通所プランを相談します。数日間の体験を通して、自分に合う環境かご確認いただけます。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 md:pl-0 md:flex md:gap-12 items-start">
+                         <div class="absolute -left-[9px] top-0 md:relative md:left-auto md:top-auto md:w-1/4 md:text-right md:pr-8">
+                            <div class="w-4 h-4 rounded-full bg-brand border-4 border-white shadow md:hidden"></div>
+                            <div class="hidden md:block text-4xl font-black text-gray-200 leading-none">03</div>
+                        </div>
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold text-ink mb-2 flex items-center gap-3">
+                                <span class="md:hidden text-brand">03.</span> 受給者証申請・利用開始
+                            </h3>
+                            <p class="text-muted leading-relaxed text-sm">
+                                お住まいの自治体にて福祉サービス受給者証の手続きを行います。行政手続きはスタッフが丁寧にサポートしますのでご安心ください。
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="pricing-system">
-              <h3 class="pricing-system__title">就労移行支援制度とは</h3>
-              <div class="pricing-system__body">
-                <p>
-                  就労移行支援は、障害者総合支援法に基づく<strong>障害福祉サービス</strong>です。
-                  一般企業への就職を目指す方に、職業訓練や就職活動支援、職場定着支援を提供します。
-                </p>
-                <p>
-                  利用には、お住まいの自治体（市区町村）から<strong>「受給者証」</strong>の交付を受ける必要があります。
-                  受給者証の申請手続きについても、当事業所がサポートいたします。
-                </p>
-              </div>
+        <section id="contact" class="py-24 bg-ink text-white relative overflow-hidden">
+             <div class="absolute top-0 right-0 w-1/2 h-full bg-gray-800 skew-x-12 translate-x-1/3 opacity-30 z-0"></div>
+
+            <div class="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div>
+                        <span class="text-brand font-bold tracking-widest text-xs uppercase">Contact</span>
+                        <h2 class="text-3xl font-black mb-6 mt-2">無料見学・個別相談</h2>
+                        <p class="text-gray-400 mb-10 leading-relaxed">
+                            「自分に合うか不安」「IT業界について知りたい」<br>
+                            まずは気軽にお話ししませんか？<br>
+                            オンラインでも対応可能です。
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <i class="bi bi-geo-alt-fill text-brand text-xl mt-1"></i>
+                                <div>
+                                    <div class="font-bold text-lg">Team Vertex 秋葉原</div>
+                                    <address class="not-italic text-gray-400 text-sm mt-1">〒101-0000 東京都千代田区〇〇 1-2-3 Vertexビル3F</address>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <i class="bi bi-telephone-fill text-brand text-xl"></i>
+                                <div>
+                                    <div class="font-bold text-lg">03-xxxx-xxxx</div>
+                                    <div class="text-gray-400 text-xs mt-1">平日 10:00 - 17:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-ink p-6 md:p-8 rounded-xl shadow-2xl">
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-muted mb-1.5">お名前 <span class="text-red-500">*</span></label>
+                                    <input type="text" class="w-full bg-bgalt border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors" placeholder="例：山田 太郎">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-muted mb-1.5">メールアドレス <span class="text-red-500">*</span></label>
+                                    <input type="email" class="w-full bg-bgalt border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors" placeholder="mail@example.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-muted mb-1.5">ご希望内容</label>
+                                <select class="w-full bg-bgalt border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors">
+                                    <option>事業所の見学</option>
+                                    <option>個別相談（オンライン）</option>
+                                    <option>資料請求のみ</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-muted mb-1.5">お問い合わせ内容</label>
+                                <textarea class="w-full bg-bgalt border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors h-24" placeholder="ご質問等あればご記入ください"></textarea>
+                            </div>
+                            <button type="button" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-4 rounded-md transition-all shadow-lg mt-2 flex justify-center items-center gap-2">
+                                送信する
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </form>
+                        <p class="text-center text-xs text-muted mt-4">
+                            <a href="#" class="underline hover:text-ink">プライバシーポリシー</a>に同意の上送信してください
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">あなたの場合の利用料金をシミュレーションできます</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                料金シミュレーション・資料請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                見学で直接ご相談
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- アクセス -->
-      <section id="access" class="section section--alt" aria-labelledby="access-title">
-        <div class="container">
-          <h2 id="access-title" class="section__title text-center">
-            アクセス
-          </h2>
-          <p class="section__lead text-center">
-            JR・地下鉄渋谷駅から徒歩5分。バリアフリー対応。
-          </p>
-
-          <div class="access-content" data-reveal>
-            <div class="access-info">
-              <dl class="access-detail">
-                <dt class="access-detail__label">事業所名</dt>
-                <dd class="access-detail__value">就労移行支援事業所 Team Vertex</dd>
-
-                <dt class="access-detail__label">住所</dt>
-                <dd class="access-detail__value">
-                  〒150-0999<br>
-                  東京都渋谷区桜丘町1-2-3 テックタワービル 5階
-                </dd>
-
-                <dt class="access-detail__label">最寄り駅</dt>
-                <dd class="access-detail__value">
-                  JR山手線「桜新町駅」徒歩3分<br>
-                  東京メトロ銀座線「桜新町駅」直結
-                </dd>
-
-                <dt class="access-detail__label">開所時間</dt>
-                <dd class="access-detail__value">
-                  月〜金 9:00〜17:00<br>
-                  土日祝 休み<br>
-                  ※ 見学は土曜日も対応可（要予約）
-                </dd>
-              </dl>
-
-              <figure class="access-map">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5278842378673!2d139.6987!3d35.6595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM5JzM0LjIiTiAxMznCsDQxJzU1LjMiRQ!5e0!3m2!1sja!2sjp!4v1234567890123"
-                  width="100%"
-                  height="450"
-                  style="border:0;"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Team Vertex所在地の地図"
-                ></iframe>
-                <figcaption class="visually-hidden">東京都渋谷区桜丘町1-2-3 テックタワービル 5階の地図</figcaption>
-              </figure>
-            </div>
-          </div>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">実際の雰囲気を確かめたい方は見学へどうぞ</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                実際に来所して見学
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                オンライン見学を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ニュース/お知らせ -->
-      <section id="news" class="section" aria-labelledby="news-title">
-        <div class="container">
-          <h2 id="news-title" class="section__title text-center">
-            ニュース/お知らせ
-          </h2>
-          <p class="section__lead text-center">
-            最新のイベント情報やお知らせをご確認ください。
-          </p>
-
-          <div class="news-list" data-reveal>
-            <article class="news-item">
-              <time class="news-item__date" datetime="2024-01-15">2024.01.15</time>
-              <span class="news-item__label news-item__label--event">イベント</span>
-              <h3 class="news-item__title">
-                <a href="#" class="news-item__link">2月の見学会・体験会のお知らせ</a>
-              </h3>
-              <p class="news-item__excerpt">
-                2月10日（土）、17日（土）、24日（土）に見学会・体験会を開催します。実際のプログラムを体験できます。
-              </p>
-            </article>
-
-            <article class="news-item">
-              <time class="news-item__date" datetime="2024-01-10">2024.01.10</time>
-              <span class="news-item__label news-item__label--info">お知らせ</span>
-              <h3 class="news-item__title">
-                <a href="#" class="news-item__link">新規プログラム「AI活用講座」を開始しました</a>
-              </h3>
-              <p class="news-item__excerpt">
-                ChatGPTやGitHub Copilotなど、最新のAIツールを活用した開発スキルを学べる新プログラムをスタートしました。
-              </p>
-            </article>
-
-            <article class="news-item">
-              <time class="news-item__date" datetime="2023-12-25">2023.12.25</time>
-              <span class="news-item__label news-item__label--achievement">実績</span>
-              <h3 class="news-item__title">
-                <a href="#" class="news-item__link">2023年度 就職実績を更新しました</a>
-              </h3>
-              <p class="news-item__excerpt">
-                2023年度は25名の方が就職に成功。就職率92%、定着率88%を達成しました。
-              </p>
-            </article>
-
-            <article class="news-item">
-              <time class="news-item__date" datetime="2023-12-01">2023.12.01</time>
-              <span class="news-item__label news-item__label--info">お知らせ</span>
-              <h3 class="news-item__title">
-                <a href="#" class="news-item__link">年末年始の営業日のご案内</a>
-              </h3>
-              <p class="news-item__excerpt">
-                12月29日（金）〜1月3日（水）は休業とさせていただきます。見学予約は1月4日（木）より受付開始です。
-              </p>
-            </article>
-          </div>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">気になる情報があれば、お気軽に見学へお越しください</p>
-            <div class="section__cta-buttons">
-              <a href="#" class="btn btn--ghost icon-link icon-link-hover">
-                全てのニュースを見る
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 成果 -->
-      <section
-        id="outcomes"
-        class="section section--alt"
-        aria-labelledby="outcomes-title"
-      >
-        <div class="container">
-          <header class="section__head with-icon-heading">
-            <span class="icon-20" aria-hidden="true"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-              >
-                <path d="M0 0h1v15h15v1H0z" />
-                <path
-                  d="M2 13h2V7H2zm4 0h2V3H6zm4 0h2V9h-2zm4 0h2V5h-2z"
-                /></svg
-            ></span>
-            <h2 id="outcomes-title" class="section__title">成果と指標</h2>
-          </header>
-          <p class="section__lead">数字で分かる、就職と定着の実力。</p>
-
-          <dl class="kpis" data-reveal>
-            <div class="kpi">
-              <dt>就職率</dt>
-              <dd>
-                <span class="kpi__num" data-countup="86">86</span
-                ><span class="kpi__unit">%</span>
-              </dd>
-            </div>
-            <div class="kpi">
-              <dt>定着率（12ヶ月）</dt>
-              <dd>
-                <span class="kpi__num" data-countup="92">92</span
-                ><span class="kpi__unit">%</span>
-              </dd>
-            </div>
-            <div class="kpi">
-              <dt>平均学習時間／月</dt>
-              <dd>
-                <span class="kpi__num" data-countup="68">68</span
-                ><span class="kpi__unit">h</span>
-              </dd>
-            </div>
-            <div class="kpi">
-              <dt>企業実習先</dt>
-              <dd>
-                <span class="kpi__num" data-countup="35">35</span
-                ><span class="kpi__unit">社</span>
-              </dd>
-            </div>
-          </dl>
-
-          <div class="note" role="note">
-            数値はダミーです。実サイトでは最新年度の実績を掲載してください。
-          </div>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">この実績を生み出すサポート体制を見学できます</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                詳しい実績資料を請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 利用の流れ -->
-      <section id="flow" class="section" aria-labelledby="flow-title">
-        <div class="container">
-          <header class="section__head with-icon-heading">
-            <span class="icon-20" aria-hidden="true">
-              <!-- calendar-check -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
-                />
-                <path
-                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
-                />
-              </svg>
-            </span>
-            <h2 id="flow-title" class="section__title">利用の流れ</h2>
-          </header>
-          <p class="section__lead">
-            初回相談から定着支援まで、専任スタッフが継続的に伴走します。
-          </p>
-
-          <ol class="timeline" data-reveal>
-            <li class="timeline__item">
-              <span class="timeline__step">1</span>
-              <h3 class="timeline__title">見学・個別相談</h3>
-              <p class="timeline__desc">
-                ニーズと配慮事項を確認。通所スケジュールを提案。
-              </p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__step">2</span>
-              <h3 class="timeline__title">体験通所（1〜2週間）</h3>
-              <p class="timeline__desc">
-                講座体験と面談で適性を可視化。計画書のたたき台を作成。
-              </p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__step">3</span>
-              <h3 class="timeline__title">個別支援計画＆学習開始</h3>
-              <p class="timeline__desc">
-                週次1on1で学習と体調をモニタリング。必要な配慮を反映。
-              </p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__step">4</span>
-              <h3 class="timeline__title">企業実習</h3>
-              <p class="timeline__desc">
-                現場課題に取り組み、報連相・品質・スピードを実地で習得。
-              </p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__step">5</span>
-              <h3 class="timeline__title">就職活動</h3>
-              <p class="timeline__desc">
-                履歴書・ポートフォリオ添削、面接練習、開示文書の準備。
-              </p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__step">6</span>
-              <h3 class="timeline__title">職場定着支援（12ヶ月）</h3>
-              <p class="timeline__desc">
-                業務整理、環境調整、月次面談で離職リスクを低減。
-              </p>
-            </li>
-          </ol>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">まずは見学から。流れを詳しくご説明します</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                利用開始までの資料を請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" class="section" aria-labelledby="faq-title">
-        <div class="container">
-          <header class="section__head with-icon-heading">
-            <span class="icon-20" aria-hidden="true"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 1a7 7 0 1 0 4.95 12.03l2.29.76a.5.5 0 0 0 .64-.64l-.76-2.29A7 7 0 0 0 8 1m.93 9.412-1 .001V9.5h1zm1.812-3.248c-.237.398-.61.67-1.016.97l-.083.063c-.487.36-.731.564-.78.93L8.86 9H7.86l.007-.295c.035-.897.58-1.314 1.04-1.652l.106-.078c.338-.253.585-.438.73-.678a1.2 1.2 0 0 0-.08-1.31C9.41 4.618 8.68 4.5 8.001 4.5c-.6 0-1.18.154-1.62.43l-.2.127-.5-.866.2-.127A3.42 3.42 0 0 1 8 3.5c.93 0 1.77.25 2.31.8.56.56.72 1.36.43 2.114"
-                /></svg
-            ></span>
-            <h2 id="faq-title" class="section__title">よくある質問</h2>
-          </header>
-
-          <details class="faq" data-reveal>
-            <summary class="faq__q">支援対象はどのような方ですか？</summary>
-            <div class="faq__a">
-              主治医の意見書等に基づく就労準備支援を必要とされる方で、IT領域での就職を目指す方です。
-            </div>
-          </details>
-
-          <details class="faq" data-reveal>
-            <summary class="faq__q">通所はオンラインでも可能ですか？</summary>
-            <div class="faq__a">
-              ハイブリッドに対応しています。面談や一部実習は来所が必要な場合があります。
-            </div>
-          </details>
-
-          <details class="faq" data-reveal>
-            <summary class="faq__q">利用料はかかりますか？</summary>
-            <div class="faq__a">
-              各自治体の負担上限月額の範囲でご利用いただけます。詳細はご相談時にご案内します。
-            </div>
-          </details>
-
-          <div class="section__cta" data-reveal>
-            <p class="section__cta-lead">他にも気になることがあれば、お気軽にご相談ください</p>
-            <div class="section__cta-buttons">
-              <a href="#booking" class="btn btn--primary icon-link icon-link-hover">
-                見学・個別相談を予約
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-              <a href="#booking" class="btn btn--ghost icon-link icon-link-hover">
-                よくある質問集を請求
-                <span class="icon-16" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- お問い合わせCTA -->
-      <section
-        id="booking"
-        class="cta section section--cta"
-        aria-labelledby="booking-title"
-      >
-        <div class="container cta__inner">
-          <div class="cta__copy">
-            <h2 id="booking-title" class="section__title">
-              お問い合わせ
-            </h2>
-            <p class="section__lead">
-              資料請求、見学・体験のご予約、その他のお問い合わせはこちらから。オンライン／来所いずれも対応します。
-            </p>
-          </div>
-          <form class="form" data-reveal novalidate id="contact-form">
-            <div class="form__row">
-              <label class="form__label" for="contact-name">氏名<span class="form__required" aria-label="必須">*</span></label>
-              <input
-                id="contact-name"
-                name="name"
-                class="form__input"
-                type="text"
-                autocomplete="name"
-                required
-                aria-required="true"
-              />
-              <span class="form__error" id="contact-name-error" role="alert"></span>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="contact-email">メールアドレス<span class="form__required" aria-label="必須">*</span></label>
-              <input
-                id="contact-email"
-                name="email"
-                class="form__input"
-                type="email"
-                autocomplete="email"
-                required
-                aria-required="true"
-              />
-              <span class="form__error" id="contact-email-error" role="alert"></span>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="contact-tel">電話番号<span class="form__required" aria-label="必須">*</span></label>
-              <input
-                id="contact-tel"
-                name="tel"
-                class="form__input"
-                type="tel"
-                autocomplete="tel"
-                required
-                aria-required="true"
-                placeholder="例: 090-1234-5678"
-              />
-              <span class="form__error" id="contact-tel-error" role="alert"></span>
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="contact-type">お問い合わせ種別<span class="form__required" aria-label="必須">*</span></label>
-              <select
-                id="contact-type"
-                name="type"
-                class="form__input"
-                required
-                aria-required="true"
-              >
-                <option value="">選択してください</option>
-                <option value="materials">資料請求</option>
-                <option value="visit">見学・体験の予約</option>
-                <option value="other">その他</option>
-              </select>
-              <span class="form__error" id="contact-type-error" role="alert"></span>
-            </div>
-            <!-- 条件付きフィールド: 資料請求選択時 -->
-            <div class="form__row form__row--conditional" id="field-purpose" style="display: none;">
-              <label class="form__label" for="contact-purpose">ご関心</label>
-              <select id="contact-purpose" name="purpose" class="form__input">
-                <option value="">選択してください</option>
-                <option value="trial">見学・体験を検討</option>
-                <option value="course">コース詳細を知りたい</option>
-                <option value="company">企業実習/採用の相談</option>
-              </select>
-            </div>
-            <!-- 条件付きフィールド: 見学・体験予約選択時 -->
-            <div class="form__row form__row--conditional" id="field-date" style="display: none;">
-              <label class="form__label" for="contact-date">希望日</label>
-              <input
-                id="contact-date"
-                name="date"
-                class="form__input"
-                type="date"
-              />
-            </div>
-            <div class="form__row">
-              <label class="form__label" for="contact-message">お問い合わせ内容<span class="form__optional" aria-label="任意">（任意）</span></label>
-              <textarea
-                id="contact-message"
-                name="message"
-                class="form__input form__textarea"
-                rows="4"
-                placeholder="ご質問やご要望などをお聞かせください"
-              ></textarea>
-            </div>
-            <div class="form__row form__row--checkbox">
-              <label class="form__checkbox-label">
-                <input
-                  id="contact-privacy"
-                  name="privacy"
-                  type="checkbox"
-                  class="form__checkbox"
-                  required
-                  aria-required="true"
-                />
-                <span class="form__checkbox-text">
-                  個人情報の取り扱いについてをご確認いただき同意いただける場合はチェックを入れてください。<span class="form__required" aria-label="必須">*</span>
-                </span>
-              </label>
-              <span class="form__error" id="contact-privacy-error" role="alert"></span>
-            </div>
-            <div class="form__actions">
-              <button
-                type="submit"
-                class="btn btn--primary icon-link icon-link-hover"
-                data-intent="contact-submit"
-              >
-                送信する
-                <span class="icon-16" aria-hidden="true"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="bi"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                    /></svg
-                ></span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+        </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container site-footer__grid">
-        <div>
-          <a href="#top" class="brand brand--footer">
-            <span class="brand__mark" aria-hidden="true">V</span>
-            <span class="brand__text">Team Vertex</span>
-            <span class="brand__sub">IT就労移行支援</span>
-          </a>
-          <p class="site-footer__copy">
-            © 2025 Team Vertex. All rights reserved.
-          </p>
+    <footer class="bg-black text-gray-500 py-12 border-t border-gray-900">
+        <div class="container mx-auto px-4 md:px-8 max-w-8xl">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 bg-gray-800 rounded font-bold text-white">V</span>
+                    <div>
+                        <span class="font-bold text-white block leading-none">Team Vertex</span>
+                        <span class="text-[10px] block mt-1">IT就労移行支援事業所</span>
+                    </div>
+                </div>
+                <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold">
+                    <li><a href="#" class="hover:text-white transition-colors">ホーム</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">プログラム</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">企業のご担当者様へ</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">運営会社</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+            <div class="text-center mt-12 pt-8 border-t border-gray-900">
+                <small class="text-xs text-gray-600">&copy; 2025 Team Vertex. All rights reserved.</small>
+            </div>
         </div>
-        <address class="site-footer__addr">
-          <span class="icon-14 me-1" aria-hidden="true"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="bi"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 0a5.53 5.53 0 0 0-5.5 5.5c0 4.285 5.5 10.5 5.5 10.5S13.5 9.785 13.5 5.5A5.53 5.53 0 0 0 8 0m0 7.5A2 2 0 1 1 8 3.5a2 2 0 0 1 0 4"
-              /></svg
-          ></span>
-          〒100-0000 東京都千代田区〇〇 1-2-3<br />
-          <span class="icon-14 me-1" aria-hidden="true"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="bi"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 3.5a4.5 4.5 0 0 1 4.5 4.5h1A5.5 5.5 0 1 0 8 13.5h.5V12L11 14l-2.5 2v-1.5H8A4.5 4.5 0 0 1 3.5 10h1A3.5 3.5 0 0 0 8 13.5"
-              /></svg
-          ></span>
-          平日 10:00-17:00／土日祝休
-        </address>
-        <ul class="site-footer__links">
-          <li>
-            <a href="#booking" class="icon-link icon-link-hover"
-              >お問い合わせ<span class="icon-14" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  /></svg></span
-            ></a>
-          </li>
-          <li>
-            <a href="#faq" class="icon-link icon-link-hover"
-              >FAQ<span class="icon-14" aria-hidden="true"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="bi"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                  /></svg></span
-            ></a>
-          </li>
-          <li><a href="#" aria-disabled="true">プライバシーポリシー</a></li>
-        </ul>
-      </div>
     </footer>
-
-    <script type="module" src="page-front.js"></script>
-    <!-- 指定のBootstrap JS（そのまま） -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <script src="./page-front.js"></script>
+</body>
 </html>
